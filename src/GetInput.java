@@ -1,7 +1,12 @@
 import java.io.*;
 import java.util.*;
 import java.util.logging.Logger;
-
+/***
+ * get the input
+ * I leave the read data from console as todo.
+ * @author zhicheng xie
+ * @version 0.01
+ */
 public class GetInput {
 
     private String filePathBundles = System.getProperty("user.dir");

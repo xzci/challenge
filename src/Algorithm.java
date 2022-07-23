@@ -1,5 +1,9 @@
 import java.util.*;
-
+/***
+ * Calculate the bundles
+ * @author zhicheng xie
+ * @version 0.01
+ */
 public class Algorithm {
     /***
      *

@@ -2,7 +2,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Logger;
-
+/***
+ * save the output data
+ * @author zhicheng xie
+ * @version 0.01
+ */
 public class SetOutput {
     private String saveFileName;
     private StringBuilder content;

@@ -2,7 +2,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
-
+/***
+ * the class of data
+ * @author zhicheng xie
+ * @version 0.01
+ */
 public class PostData {
     private String code = "Data";
     private TreeMap<Integer, Double> models;

@@ -20,8 +20,7 @@ public class SubmissionFactory {
                 default:
                     return null;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
         }
         return null;

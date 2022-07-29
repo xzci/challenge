@@ -1,4 +1,4 @@
-package org.example.result;
+package org.example.calculation;
 
 import lombok.Data;
 import org.example.order.Order;
@@ -16,9 +16,16 @@ public class Calculation {
 
     private LinkedList<Double> postPrices = new LinkedList<>();
     private LinkedList<String> postDetails = new LinkedList<>();
-    private LinkedList<Double> postTotalPrices = new LinkedList<>();
+    private Double postTotalPrices;
+
+    private Integer postAmount = 0;
 
     public void calculate() {
+        postPrices.clear();
+        postDetails.clear();
+        postTotalPrices = 0.0;
+
+
         int[] path = new int[submissionFormat.getModels().size()];
         int j = 0;
         for (var i : submissionFormat.getModels().keySet()) {
@@ -46,7 +53,7 @@ public class Calculation {
         this.postDetails.add((count + 1) + " x " + result.getLast());
         this.postPrices.add((submissionFormat.getModels().get(result.getLast()) * (count + 1)));
         totalPrice += (submissionFormat.getModels().get(result.getLast()) * (count + 1));
-        this.postTotalPrices.add(totalPrice);
+        this.postTotalPrices = totalPrice;
     }
 
     private LinkedList<Integer> calculateAlgorithm(int[] bundles, int amount) {
@@ -82,10 +89,11 @@ public class Calculation {
     @Override
     public String toString() {
         String result = new String();
-        for(int i = 0; i < this.postDetails.size(); i++) {
-            result += String.format("%s $ %f \n", this.postDetails, this.postPrices);
+        for (int i = 0; i < this.postDetails.size(); i++) {
+            result += String.format("  %s $ %.2f \n", this.postDetails.get(i), this.postPrices.get(i));
         }
-        return submissionFormat.getCode() +  this.postTotalPrices + result;
+        return order.getPost() + " " + submissionFormat.getCode() +
+                " " + this.postTotalPrices + "\n" + result;
     }
 }
 

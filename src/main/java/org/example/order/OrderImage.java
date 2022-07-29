@@ -6,7 +6,7 @@ import org.example.Code;
 import java.util.LinkedList;
 
 @Data
-public class OrderImage  implements Order{
+public class OrderImage implements Order {
     private final String code = String.valueOf(Code.Image);
     private Integer post;
 

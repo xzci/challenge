@@ -6,7 +6,7 @@ import org.example.Code;
 import java.util.LinkedList;
 
 @Data
-public class OrderVideo implements Order{
+public class OrderVideo implements Order {
     private final String code = String.valueOf(Code.Video);
     private Integer post;
 

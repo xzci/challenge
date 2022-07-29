@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 
 public class OrderFactory {
 
-    public Order getOrder(String data) throws InputMismatchException{
+    public Order getOrder(String data) throws InputMismatchException {
         String[] dataSplite = data.split(" ");
         String code = dataSplite[1];
 

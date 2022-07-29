@@ -31,16 +31,24 @@ public class Main {
         String ans = new String();
 
         // this part might use stream, I am still leaning
-        for (var order : orders)
-            for (var submission : submissionFormats) {
-                if (order.getCode().equals(submission.getCode())) {
-                    calculation.setOrder(order);
-                    calculation.setSubmissionFormat(submission);
-                    calculation.calculate();
-                    ans += calculation.toString();
-                    break;
-                }
-            }
+//        for (var order : orders)
+//            for (var submission : submissionFormats) {
+//                if (order.getCode().equals(submission.getCode())) {
+//                    calculation.setOrder(order);
+//                    calculation.setSubmissionFormat(submission);
+//                    calculation.calculate();
+//                    ans += calculation.toString();
+//                    break;
+//                }
+//            }
+
+        for (var myorder : orders) {
+            calculation.setOrder(myorder);
+            calculation.setSubmissionFormat(submissionFormats.stream().filter(submission ->
+                    submission.getCode().equals(myorder.getCode())).findFirst().orElseThrow());
+            calculation.calculate();
+            ans += calculation.toString();
+        }
         io.setContent(ans);
         io.save();
     }
